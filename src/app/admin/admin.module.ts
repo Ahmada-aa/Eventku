@@ -11,6 +11,10 @@ import { MusicComponent } from './music/music.component';
 import { ArtComponent } from './art/art.component';
 import { SportComponent } from './sport/sport.component';
 import { EtcComponent } from './etc/etc.component';
+import { MusicDetailComponent } from './music-detail/music-detail.component';
+import { ArtDetailComponent } from './art-detail/art-detail.component';
+import { SportDetailComponent } from './sport-detail/sport-detail.component';
+import { EtcDetailComponent } from './etc-detail/etc-detail.component';
 
 const routes: Routes = [
   {
@@ -64,7 +68,11 @@ const routes: Routes = [
     MusicComponent,
     ArtComponent,
     SportComponent,
-    EtcComponent
+    EtcComponent,
+    MusicDetailComponent,
+    ArtDetailComponent,
+    SportDetailComponent,
+    EtcDetailComponent
   ],
   imports: [
     CommonModule,

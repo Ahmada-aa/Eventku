@@ -20,8 +20,8 @@
                 <th align="right"></th>
             </thead>
             <tbody>
-                <tr>
-                   <td>idx+1</td>
+                <tr *ngFor= "let msc of mscs; let idx=index">
+                   <td>{{idx+1}}</td>
                     <td >{{msc.code}}</td>
                     <td>{{msc.event_name}}</td>
                     <td>{{msc.organizer}}</td>
