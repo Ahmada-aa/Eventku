@@ -15,6 +15,7 @@ import { MusicDetailComponent } from './music-detail/music-detail.component';
 import { ArtDetailComponent } from './art-detail/art-detail.component';
 import { SportDetailComponent } from './sport-detail/sport-detail.component';
 import { EtcDetailComponent } from './etc-detail/etc-detail.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -72,7 +73,8 @@ const routes: Routes = [
     MusicDetailComponent,
     ArtDetailComponent,
     SportDetailComponent,
-    EtcDetailComponent
+    EtcDetailComponent,
+    FormsModule
   ],
   imports: [
     CommonModule,
