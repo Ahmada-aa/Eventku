@@ -21,12 +21,14 @@
         <img mat-card-img src="E:\My Jobs\eventku\src\assets\images\logo.png">
         <span>Eventku</span>
         <div class="uk-width-expand"></div>
+        <span class="spacer"></span>
         <small>Admin</small>
+        <button mat-button class="uk-margin-left" style="background-color: rgb(80, 11, 57);" routerLink="/login">Logout</button>
     </mat-toolbar>
 <mat-sidenav-container class="admin-container">
 <mat-sidenav
 #sidenav
-mode="push"
+mode="side"
 [position]="'start'"
 closed
 class="sidenav-left"
@@ -56,4 +58,7 @@ class="sidenav-left"
     <router-outlet></router-outlet>
 </mat-sidenav-content>
 </mat-sidenav-container>
+<mat-card-footer>
+    <p class="uk-flex uk-flex-center" style="background-color: rgb(80, 11, 57);">Copyright &copy; MADAFAKAH 2021</p>
+</mat-card-footer>
 </ng-container>

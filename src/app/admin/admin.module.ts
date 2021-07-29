@@ -73,12 +73,12 @@ const routes: Routes = [
     MusicDetailComponent,
     ArtDetailComponent,
     SportDetailComponent,
-    EtcDetailComponent,
-    FormsModule
+    EtcDetailComponent
   ],
   imports: [
     CommonModule,
     MaterialDesign,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })

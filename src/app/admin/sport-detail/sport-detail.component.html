@@ -1,1 +1,35 @@
-<p>sport-detail works!</p>
+<h3 mat-dialog-title style="color: white;">
+    Details Sport Event
+ </h3>
+ <div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>code</mat-label>
+        <input matInput [(ngModel)]="data.code">      
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Event Name</mat-label>
+        <input matInput [(ngModel)]="data.event_name" >     
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Organizer</mat-label>
+        <input matInput [(ngModel)]="data.organizer" >     
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="data.location" >     
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Date</mat-label>
+        <input matInput type="number" [(ngModel)]="data.date" >      
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" [(ngModel)]="data.price" >      
+    </mat-form-field>
+ </div>
+ <div mat-dialog-actions align="end">
+ <button mat-button mat-dialog-close>Batal</button>
+ <button mat-flat-button (click)="saveData()">Simpan</button>
+ </div>
+ 
+ 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-etc-detail',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./etc-detail.component.css']
 })
 export class EtcDetailComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    public dialogRef : MatDialogRef<EtcDetailComponent>,
+    @Inject (MAT_DIALOG_DATA) public data : any
+  ) { }
 
   ngOnInit(): void {
+  }
+  saveData()
+  {
+    this.dialogRef.close(this.data);
   }
 
 }
