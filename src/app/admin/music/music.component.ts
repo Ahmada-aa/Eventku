@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./music.component.css']
 })
 export class MusicComponent implements OnInit {
-
+  title:any;
+  msc:any={};
+  idx: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.title = 'Music';
+    this.msc={
+      code : '001',
+      event_name : 'Music Festival',
+      organizer : 'Maru',
+      location : 'Kedai Maru',
+      date : 'August 19',
+      price : 99999
+    };
   }
 
 }

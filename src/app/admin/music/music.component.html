@@ -1,7 +1,7 @@
 <div class="uk-height-viewport" style="background-color: rgb(119, 72, 103);">
 <mat-card class="" >
     <mat-card-header>
-        <mat-card-title>Music</mat-card-title>
+        <mat-card-title>{{title}}</mat-card-title>
     </mat-card-header>
     <mat-card-content >
         <div class="uk-flex">
@@ -11,7 +11,7 @@
         <table class="uk-table uk-table-middle uk-table-divider ">
             <thead>                
                 <th>No</th>
-                <th class="uk-flex uk-flex-center">Pamflet</th>
+                <th>Code</th>
                 <th>Event Name</th>
                 <th>Organizer</th>
                 <th>Location</th>
@@ -22,20 +22,14 @@
             <tbody>
                 <tr>
                    <td>idx+1</td>
-                    <td class="uk-flex uk-flex-center">
-                        <img style="width: 30%;" mat-card-img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/purple-modern-music-concert-poster-design-template-75cf6a5693edd99f1959fded71313738_screen.jpg?ts=1566606321">
-                    </td>
-                    <td>Music Festival</td>
-                    <td>Bright Studios</td>
-                    <td>Tiki Bar</td>
-                    <td>26 August</td>
-                    <td>Free</td>
+                    <td >{{msc.code}}</td>
+                    <td>{{msc.event_name}}</td>
+                    <td>{{msc.organizer}}</td>
+                    <td>{{msc.location}}</td>
+                    <td>{{msc.date}}</td>
+                    <td>{{msc.price}}</td>
                     <td align="right">
-                        <button mat-button color="primary">
-                            Buy
-                            <mat-icon>download</mat-icon>
-                        </button>
-                        <button mat-button color="primary" >Upload</button>
+                        <button mat-button color="primary">Buy</button>
                         <button mat-button color="primary" >Edit</button>
                         <button mat-button color="warn" >Delete</button>
                     </td>
