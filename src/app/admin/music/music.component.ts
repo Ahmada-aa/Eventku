@@ -19,7 +19,7 @@ export class MusicComponent implements OnInit {
       organizer : 'Maru',
       location : 'Kedai Maru',
       date : 'August 19',
-      price : 99999
+      price : 99990
     };
   }
 
