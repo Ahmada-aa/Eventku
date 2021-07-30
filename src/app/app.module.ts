@@ -9,6 +9,7 @@ import { MaterialDesign} from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotComponent } from './auth/forgot/forgot.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MaterialDesign,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

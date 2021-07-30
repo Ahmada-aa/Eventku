@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
     let conf=confirm('Are You Sure To Exit?');
     if (conf){
       localStorage.removeItem('appToken');
-      window.location.reload();
+      this.router.navigate(['/login']);
     }
   }
 

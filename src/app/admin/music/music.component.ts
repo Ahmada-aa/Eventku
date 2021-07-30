@@ -53,21 +53,14 @@ export class MusicComponent implements OnInit {
    })
  }
 
- loadingDelete:any={};
-
  deleteProduct(id: any, idx: any)
  {
    
    var conf=confirm('Delete item?');
    if(conf)
    {
-    this.loadingDelete[idx]=true;
-    this.api.delete('musiks/'+id).subscribe(res=>{
+      this.api.delete('musiks/'+id).subscribe(res=>{
       this.mscs.splice(idx,1);
-      this.loadingDelete[idx]=false;
-    },error=>{
-      this.loadingDelete=false;
-      alert('Cannot Delete Data!');
     });
    }
    

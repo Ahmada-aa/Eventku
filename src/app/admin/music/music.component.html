@@ -36,7 +36,7 @@
                     <td align="right">
                         <button mat-button color="primary" (click)="buyProduct(idx)">Buy</button>
                         <button mat-button color="primary" (click)="musicDetail(msc,idx)">Edit</button>
-                        <button mat-button color="warn" (click)="deleteProduct(msc.id,idx)" [disabled]="loadingDelete[idx]">{{<loadingDelete idx=""></loadingDelete> ? 'Deleting . . . ' : 'Delete'}}</button>
+                        <button mat-button color="warn" (click)="deleteProduct(msc.id,idx)" >Delete</button>
                     </td>
                 </tr>
             </tbody>

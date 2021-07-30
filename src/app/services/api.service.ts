@@ -27,21 +27,25 @@ export class ApiService {
 
   get(url: string)
   {
+    this.getToken();
     return this.http.get(this.serverUrl+url,this.httpOptions);
   }
 
   post(url: string, data: object)
   {
+    this.getToken();
     return this.http.post(this.serverUrl+url,data,this.httpOptions);
   }
 
   put(url: string, data: object)
   {
+    this.getToken();
     return this.http.put(this.serverUrl+url,data,this.httpOptions);
   }
 
   delete(url: string)
   {
+    this.getToken();
     return this.http.delete(this.serverUrl+url,this.httpOptions);
   }
   
