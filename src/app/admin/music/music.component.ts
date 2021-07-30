@@ -22,10 +22,16 @@ export class MusicComponent implements OnInit {
     this.getmscs();
   }
 
+  loading: boolean | undefined;
   getmscs()
   {
-    this.api.get('musik').subscribe(result=>{
+    this.loading=true;
+    this.api.get('musiks').subscribe(result=>{
       this.mscs=result;
+      this.loading=false;
+    },error=>{
+      this.loading=false;
+      alert('Trouble, Try Again!');
     })   
  
   }
@@ -42,16 +48,29 @@ export class MusicComponent implements OnInit {
         //jika idx=-1 (penambahan data baru) maka tambahkan data
        if(idx==-1)this.mscs.push(res);      
         //jika tidak maka perbarui data  
-       else this.mscs[idx]=res; 
+       else this.mscs[idx]=data; 
      }
    })
  }
 
- deleteProduct(idx: any)
+ loadingDelete:any={};
+
+ deleteProduct(id: any, idx: any)
  {
+   
    var conf=confirm('Delete item?');
    if(conf)
-   this.mscs.splice(idx,1);
+   {
+    this.loadingDelete[idx]=true;
+    this.api.delete('musiks/'+id).subscribe(res=>{
+      this.mscs.splice(idx,1);
+      this.loadingDelete[idx]=false;
+    },error=>{
+      this.loadingDelete=false;
+      alert('Cannot Delete Data!');
+    });
+   }
+   
  }
 
  buyProduct(idx: any)

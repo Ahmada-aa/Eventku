@@ -4,34 +4,30 @@
             <h3 style="color: rgb(255, 255, 255);">REGISTER</h3>
         </div>
         <mat-card-content>
-          <div>
             <mat-form-field class="uk-width-1-1" appearance="outline">
                 <mat-label>Username</mat-label>
                 <input matInput placeholder="Ex. Madafakah">
               </mat-form-field>
-            </div><div>
           <mat-form-field class="uk-width-1-1" appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Ex. email@domain.com">
-          </mat-form-field>
-        </div><div>
-          <mat-form-field class="uk-width-1-1" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput placeholder="Your password">
-          </mat-form-field>
-        </div><div>
-          <mat-form-field class="uk-width-1-1" appearance="outline">
-            <mat-label>Re-Type Password</mat-label>
-            <input matInput placeholder="Your password">
-          </mat-form-field>
-        </div>
-          <div class="uk-flex uk-flex-right">
-            <div class="uk-width-expand">
-              <button mat-button routerLink="/login">I Have Account</button>
-              <button mat-button routerLink="/forgot">Forgot</button>
-            <button mat-raised-button color="primary" routerLink="/admin/dashboard">Create</button>
-          </div>
-        </div>
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Ex. email@domain.com" [(ngModel)]="user.email" >
+          
+            </mat-form-field>
+            <mat-form-field class="uk-width-1-1" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" placeholder="Your password" [(ngModel)]="user.password" >
+              <button mat-icon-button matSuffix (click)="hide = !hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+            <div class="uk-flex uk-flex-right">
+                <div class="uk-width-expand">
+                  <button mat-button routerLink="/login">I have an account</button>
+                  <button mat-button routerLink="/forgot">Forgot</button>
+                </div>
+                <button mat-raised-button color="primary" (click)="register()" 
+                [disabled]="loading">{{loading ? 'Tunggu...' : 'REGISTER'}}</button>
+            </div>
         </mat-card-content>
   </mat-card>
   </div>
