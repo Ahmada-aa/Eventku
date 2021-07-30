@@ -1,5 +1,10 @@
 <div class="uk-height-viewport" style="background-color: rgb(119, 72, 103);">
-    <mat-card class="" >
+
+    <div *ngIf="loading" style="height: 300px;" class="uk-flex uk-flex-center uk-flex-middle">
+        <mat-spinner></mat-spinner>
+    </div>    
+    
+    <mat-card *ngIf="!loading" >
         <mat-card-header>
             <mat-card-title>{{title}}</mat-card-title>
         </mat-card-header>
@@ -20,18 +25,18 @@
                     <th align="right"></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor= "let spt of spts; let idx=index">
+                    <tr *ngFor= "let spr of sprs; let idx=index">
                        <td>{{idx+1}}</td>
-                        <td >{{spt.code}}</td>
-                        <td>{{spt.event_name}}</td>
-                        <td>{{spt.organizer}}</td>
-                        <td>{{spt.location}}</td>
-                        <td>{{spt.date}}</td>
-                        <td>{{spt.price}}</td>
+                        <td >{{spr.code}}</td>
+                        <td>{{spr.event_name}}</td>
+                        <td>{{spr.organizer}}</td>
+                        <td>{{spr.location}}</td>
+                        <td>{{spr.date}}</td>
+                        <td>{{spr.price}}</td>
                         <td align="right">
                             <button mat-button color="primary" (click)="buyProduct(idx)">Buy</button>
-                            <button mat-button color="primary" (click)="sportDetail(spt,idx)">Edit</button>
-                            <button mat-button color="warn" (click)="deleteProduct(idx)">Delete</button>
+                            <button mat-button color="primary" (click)="sportDetail(spr,idx)">Edit</button>
+                            <button mat-button color="warn" (click)="deleteProduct(spr.id,idx)" >Delete</button>
                         </td>
                     </tr>
                 </tbody>

@@ -22,10 +22,16 @@ export class EtcComponent implements OnInit {
     this.getfnbs();
   }
 
+  loading: boolean | undefined;
   getfnbs()
   {
-    this.api.get('musik').subscribe(result=>{
+    this.loading=true;
+    this.api.get('fnbs').subscribe(result=>{
       this.fnbs=result;
+      this.loading=false;
+    },error=>{
+      this.loading=false;
+      alert('Trouble, Try Again!');
     })   
  
   }
@@ -42,16 +48,22 @@ export class EtcComponent implements OnInit {
         //jika idx=-1 (penambahan data baru) maka tambahkan data
        if(idx==-1)this.fnbs.push(res);      
         //jika tidak maka perbarui data  
-       else this.fnbs[idx]=res; 
+       else this.fnbs[idx]=data; 
      }
    })
  }
 
- deleteProduct(idx: any)
+ deleteProduct(id: any, idx: any)
  {
+   
    var conf=confirm('Delete item?');
    if(conf)
-   this.fnbs.splice(idx,1);
+   {
+      this.api.delete('fnbs/'+id).subscribe(res=>{
+      this.fnbs.splice(idx,1);
+    });
+   }
+   
  }
 
  buyProduct(idx: any)

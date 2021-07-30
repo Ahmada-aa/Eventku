@@ -1,5 +1,10 @@
 <div class="uk-height-viewport" style="background-color: rgb(119, 72, 103);">
-    <mat-card class="" >
+
+    <div *ngIf="loading" style="height: 300px;" class="uk-flex uk-flex-center uk-flex-middle">
+        <mat-spinner></mat-spinner>
+    </div>    
+    
+    <mat-card *ngIf="!loading" >
         <mat-card-header>
             <mat-card-title>{{title}}</mat-card-title>
         </mat-card-header>
@@ -31,7 +36,7 @@
                         <td align="right">
                             <button mat-button color="primary" (click)="buyProduct(idx)">Buy</button>
                             <button mat-button color="primary" (click)="fnbDetail(fnb,idx)">Edit</button>
-                            <button mat-button color="warn" (click)="deleteProduct(idx)">Delete</button>
+                            <button mat-button color="warn" (click)="deleteProduct(fnb.id,idx)" >Delete</button>
                         </td>
                     </tr>
                 </tbody>

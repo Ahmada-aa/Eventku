@@ -22,10 +22,16 @@ export class ArtComponent implements OnInit {
     this.getarts();
   }
 
+  loading: boolean | undefined;
   getarts()
   {
-    this.api.get('seni').subscribe(result=>{
+    this.loading=true;
+    this.api.get('senis').subscribe(result=>{
       this.arts=result;
+      this.loading=false;
+    },error=>{
+      this.loading=false;
+      alert('Trouble, Try Again!');
     })   
  
   }
@@ -42,16 +48,22 @@ export class ArtComponent implements OnInit {
         //jika idx=-1 (penambahan data baru) maka tambahkan data
        if(idx==-1)this.arts.push(res);      
         //jika tidak maka perbarui data  
-       else this.arts[idx]=res; 
+       else this.arts[idx]=data; 
      }
    })
  }
 
- deleteProduct(idx: any)
+ deleteProduct(id: any, idx: any)
  {
+   
    var conf=confirm('Delete item?');
    if(conf)
-   this.arts.splice(idx,1);
+   {
+      this.api.delete('seniss/'+id).subscribe(res=>{
+      this.arts.splice(idx,1);
+    });
+   }
+   
  }
 
  buyProduct(idx: any)
@@ -60,4 +72,5 @@ export class ArtComponent implements OnInit {
    if(conf)
    this.arts();
  }
+
 }

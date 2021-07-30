@@ -10,8 +10,8 @@ import { SportDetailComponent } from '../sport-detail/sport-detail.component';
 })
 export class SportComponent implements OnInit {
   title:any;
-  spt:any={};
-  spts:any=[];
+  spr:any={};
+  sprs:any=[];
   constructor(
     public dialog:MatDialog,
     public api:ApiService
@@ -19,13 +19,19 @@ export class SportComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = 'Sport';
-    this.getspts();
+    this.getsprs();
   }
 
-  getspts()
+  loading: boolean | undefined;
+  getsprs()
   {
-    this.api.get('musik').subscribe(result=>{
-      this.spts=result;
+    this.loading=true;
+    this.api.get('sports').subscribe(result=>{
+      this.sprs=result;
+      this.loading=false;
+    },error=>{
+      this.loading=false;
+      alert('Trouble, Try Again!');
     })   
  
   }
@@ -40,25 +46,31 @@ export class SportComponent implements OnInit {
      if(res)
      {
         //jika idx=-1 (penambahan data baru) maka tambahkan data
-       if(idx==-1)this.spts.push(res);      
+       if(idx==-1)this.sprs.push(res);      
         //jika tidak maka perbarui data  
-       else this.spts[idx]=res; 
+       else this.sprs[idx]=data; 
      }
    })
  }
 
- deleteProduct(idx: any)
+ deleteProduct(id: any, idx: any)
  {
+   
    var conf=confirm('Delete item?');
    if(conf)
-   this.spts.splice(idx,1);
+   {
+      this.api.delete('musiks/'+id).subscribe(res=>{
+      this.sprs.splice(idx,1);
+    });
+   }
+   
  }
 
  buyProduct(idx: any)
  {
    var conf=confirm('Sure Purchase item?');
    if(conf)
-   this.spts();
+   this.sprs();
  }
 
 }
