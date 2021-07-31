@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
   //serverUrl:any='http://localhost/evtphp/getmusik.php/';
-  serverUrl:any='http://localhost:1337/';
+  //serverUrl:any='http://localhost:1337/';
+  serverUrl:any='https://enigmatic-wildwood-73506.herokuapp.com/';
   constructor(
     public http:HttpClient
   ) { }
